@@ -1,0 +1,147 @@
+{
+    "id": 8690,
+    "parent_id": 0,
+    "status": "processing",
+    "currency": "INR",
+    "version": "6.9.4",
+    "prices_include_tax": false,
+    "date_created": "2022-12-08T12:22:58",
+    "date_modified": "2022-12-08T12:22:58",
+    "discount_total": "0.00",
+    "discount_tax": "0.00",
+    "shipping_total": "139.45",
+    "shipping_tax": "0.00",
+    "cart_tax": "0.00",
+    "total": "488.45",
+    "total_tax": "0.00",
+    "customer_id": 18,
+    "order_key": "wc_order_vrYYdomrlDbS2",
+    "billing": {
+      "first_name": "Rachit",
+      "last_name": "Singh",
+      "company": "",
+      "address_1": "637, tower b, alphathumb",
+      "address_2": "noida",
+      "city": "noida",
+      "state": "UP",
+      "postcode": "201305",
+      "country": "IN",
+      "email": "dmi3@nuformsocial.com",
+      "phone": "8445457572"
+    },
+    "shipping": {
+      "first_name": "Rachit",
+      "last_name": "Singh",
+      "company": "",
+      "address_1": "637, tower b, alphathumb",
+      "address_2": "noida",
+      "city": "noida",
+      "state": "UP",
+      "postcode": "201305",
+      "country": "IN",
+      "phone": ""
+    },
+    "payment_method": "cod",
+    "payment_method_title": "Cash on delivery",
+    "transaction_id": "",
+    "customer_ip_address": "103.154.247.27",
+    "customer_user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+    "created_via": "checkout",
+    "customer_note": "",
+    "date_completed": null,
+    "date_paid": null,
+    "cart_hash": "bc2ced88a73ef145bb1bf9bdb9a87bcc",
+    "number": "8690",
+    "meta_data": [
+      {
+        "id": 14648,
+        "key": "is_vat_exempt",
+        "value": "no"
+      },
+      {
+        "id": 14653,
+        "key": "_new_order_email_sent",
+        "value": "true"
+      },
+      {
+        "id": 14654,
+        "key": "_logistics_status",
+        "value": "pending"
+      },
+      {
+        "id": 14655,
+        "key": "_source_api_code",
+        "value": "4"
+      },
+      {
+        "id": 14656,
+        "key": "_thankyou_action_done",
+        "value": "1"
+      }
+    ],
+    "line_items": [
+      {
+        "id": 66,
+        "name": "Gond laddu ( Sugar ) 400g",
+        "product_id": 8061,
+        "variation_id": 0,
+        "quantity": 1,
+        "tax_class": "",
+        "subtotal": "349.00",
+        "subtotal_tax": "0.00",
+        "total": "349.00",
+        "total_tax": "0.00",
+        "taxes": [],
+        "meta_data": [],
+        "sku": "NZ015",
+        "price": 349,
+        "image": {
+          "id": "8579",
+          "src": "https://www.nutrilez.com/wp-content/uploads/2022/07/1-11.png"
+        },
+        "parent_name": null
+      }
+    ],
+    "tax_lines": [],
+    "shipping_lines": [
+      {
+        "id": 67,
+        "method_title": "Delhivery 0.50 kg ( Delivery By 2 to 3 Days )",
+        "method_id": "ithk_pickup_shipping_method",
+        "instance_id": "5",
+        "total": "139.45",
+        "total_tax": "0.00",
+        "taxes": [],
+        "meta_data": []
+      }
+    ],
+    "fee_lines": [],
+    "coupon_lines": [],
+    "refunds": [],
+    "payment_url": "https://www.nutrilez.com/checkout/order-pay/8690/?pay_for_order=true&key=wc_order_vrYYdomrlDbS2",
+    "is_editable": false,
+    "needs_payment": false,
+    "needs_processing": true,
+    "date_created_gmt": "2022-12-08T06:52:58",
+    "date_modified_gmt": "2022-12-08T06:52:58",
+    "date_completed_gmt": null,
+    "date_paid_gmt": null,
+    "currency_symbol": "₹",
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.nutrilez.com/wp-json/wc/v3/orders/8690"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.nutrilez.com/wp-json/wc/v3/orders"
+        }
+      ],
+      "customer": [
+        {
+          "href": "https://www.nutrilez.com/wp-json/wc/v3/customers/18"
+        }
+      ]
+    }
+  }
