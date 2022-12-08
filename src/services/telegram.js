@@ -1,29 +1,38 @@
 const TelegramBot = require("node-telegram-bot-api");
 const { JsonDB, Config } = require("node-json-db");
-var db = new JsonDB(new Config("myDataBase", true, false, "/"));
+
+//Database config
+var db = new JsonDB(new Config("myDataBase", true, false, "/"));3
+
+//Telegram bot config
 const token = process.env.TELEGRAM_TOKEN;
 
+//bot instance
 const bot = new TelegramBot(token, { polling: true });
 
-
-bot.onText(/\/login (.+)/, (msg, match) => {
-    // 'msg' is the received Message from Telegram
-    // 'match' is the result of executing the regexp above on the text content
-    // of the message
+//login function
+bot.onText(/\/login (.+)/, async (msg, match) => {
     const chatId = msg.chat.id;
     const resp = match[1]; // the captured "whatever"
-if (resp == process.env.LOGIN_PASSWORD.toString()  ) {
-    db.push("/adminusers", [chatId], false);
-    bot.sendMessage(chatId, "You are now an admin");
+
+if (resp == process.env.LOGIN_PASSWORD.toString()  )  {
+
+    // get all admin users 
+    chatIds = await db.getData("/adminusers");
+    // check if the user is already an admin
+    if(!chatIds.includes(chatId))
+        { db.push("/adminusers", [chatId], false);
+        bot.sendMessage(chatId, "You are now an admin");
+    }else bot.sendMessage(chatId, "You are already an admin ");
 }else {bot.sendMessage(chatId, "wrong Password");}
   });
 
-function sendMessage(chatId, message) {
+//send report function
+async function  sendReport(message) {
+    const chatIds = await db.getData("/adminusers");
+    chatIds.forEach((chatId) => {
   bot.sendMessage(chatId, message);
+    });
 }
 
-function sendReport(message) {
-  bot.sendMessage(chatId, message);
-}
-
-module.exports = { bot, sendMessage, sendReport };
+module.exports = { bot, sendReport };
