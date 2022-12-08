@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
+// default route
 router.get("/", async (req, res, next) => {
   try {
     res.json("order server is running");
@@ -9,6 +10,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// post route
 router.post("/", async (req, res, next) => {
   try {
     const { billing, job } = req.body;
