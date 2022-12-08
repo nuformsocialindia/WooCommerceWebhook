@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const { sendMessage } = require("../services/telegram");
 // default route
 router.get("/", async (req, res, next) => {
   try {
@@ -13,11 +13,17 @@ router.get("/", async (req, res, next) => {
 // post route
 router.post("/", async (req, res, next) => {
   try {
-    const { billing, job } = req.body;
+    const {
+      billing,
+      shipping,
+      payment_method,
+      spayment_method_title,
+      line_items,
+    } = req.body;
+    sendMessage(1072071089, billing["first_name"].toString());
 
-    // const map = new Map(Object.entries(JSON.parse(req.body)));
-    // map = new Map(JSON.parse(billing));
     console.log(billing);
+
     res.json(billing);
   } catch (error) {
     next(error);
