@@ -5,7 +5,7 @@ const {db} = require("../database");
 const token = process.env.TELEGRAM_TOKEN;
 
 //bot instance
-const bot = new TelegramBot(token, { polling: false });
+const bot = new TelegramBot(token, { polling: true });
 
 //login function
 bot.onText(/\/login (.+)/, async (msg, match) => {
@@ -24,12 +24,6 @@ if (resp == process.env.LOGIN_PASSWORD.toString()  )  {
 }else {bot.sendMessage(chatId, "wrong Password");}
   });
   
-  bot.on('message', (msg) => {
-    const chatId = msg.chat.id;
-  
-    // send a message to the chat acknowledging receipt of their message
-    bot.sendMessage(chatId, 'Received your message');
-  });
 
 //send report function
 async function  TelegramSendReport(message, chatIds ) {
