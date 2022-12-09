@@ -5,7 +5,7 @@ const {db} = require("../database");
 const token = process.env.TELEGRAM_TOKEN;
 
 //bot instance
-const bot = new TelegramBot(token, { polling: true });
+const bot = new TelegramBot(token, { polling: false });
 
 //login function
 bot.onText(/\/login (.+)/, async (msg, match) => {
