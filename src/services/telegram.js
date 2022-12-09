@@ -24,6 +24,22 @@ if (resp == process.env.LOGIN_PASSWORD.toString()  )  {
 }else {bot.sendMessage(chatId, "wrong Password");}
   });
   
+  //add email to admin section
+bot.onText(/\/addemail (.+)/,async (msg, match) => {
+    const chatId = msg.chat.id;
+    const Email = match[1]; // the captured "whatever"
+    // get all admin users 
+    chatIds = await db.getData("/adminUsers/TelegramChatIds");
+    // check if the user is already an admin
+    if(chatIds.includes(chatId)){
+        Emails = await db.getData("/adminUsers/Emails");
+        if(!Emails.includes(Email))
+        {db.push("/adminUsers/Emails", [Email], false);
+        bot.sendMessage(chatId, "Email added");}  
+        else bot.sendMessage(chatId, "Email already added");
+        
+    }else bot.sendMessage(chatId, "You are not an admin ");
+  });
 
 //send report function
 async function  TelegramSendReport(message, chatIds ) {
