@@ -1,8 +1,5 @@
 const TelegramBot = require("node-telegram-bot-api");
-const { JsonDB, Config } = require("node-json-db");
-
-//Database config
-var db = new JsonDB(new Config("myDataBase", true, false, "/"));3
+const {db} = require("../database");
 
 //Telegram bot config
 const token = process.env.TELEGRAM_TOKEN;
@@ -18,18 +15,17 @@ bot.onText(/\/login (.+)/, async (msg, match) => {
 if (resp == process.env.LOGIN_PASSWORD.toString()  )  {
 
     // get all admin users 
-    chatIds = await db.getData("/adminusers");
+    chatIds = await db.getData("/adminUsers/TelegramChatIds");
     // check if the user is already an admin
     if(!chatIds.includes(chatId))
-        { db.push("/adminusers", [chatId], false);
+        { db.push("/adminUsers/TelegramChatIds", [chatId], false);
         bot.sendMessage(chatId, "You are now an admin");
     }else bot.sendMessage(chatId, "You are already an admin ");
 }else {bot.sendMessage(chatId, "wrong Password");}
   });
 
 //send report function
-async function  TelegramSendReport(message) {
-    const chatIds = await db.getData("/adminusers");
+async function  TelegramSendReport(message, chatIds ) {
     chatIds.forEach((chatId) => {
   bot.sendMessage(chatId, message);
     });
