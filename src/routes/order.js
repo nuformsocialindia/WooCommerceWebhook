@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {  sendReport } = require("../services/telegram");
+const {  sendReport } = require("../services/sendReport");
 // default route
 router.get("/", async (req, res, next) => {
   try {
@@ -30,11 +30,9 @@ router.post("/", async (req, res, next) => {
     items = line_items.map((item) => {});
     const report = "New Order "+date_created +"\n"+billing["first_name"] +" " + billing["last_name"] +"\n"+billing["address_1"] +"\n"+ billing["address_2"] ;
 
-    // send message to telegram
+    // send report
     sendReport(report.toString());
-
-    console.log(billing);
-
+    
     res.json(billing);
   } catch (error) {
     next(error);

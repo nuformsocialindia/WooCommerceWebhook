@@ -28,11 +28,11 @@ if (resp == process.env.LOGIN_PASSWORD.toString()  )  {
   });
 
 //send report function
-async function  sendReport(message) {
+async function  TelegramSendReport(message) {
     const chatIds = await db.getData("/adminusers");
     chatIds.forEach((chatId) => {
   bot.sendMessage(chatId, message);
     });
 }
 
-module.exports = { bot, sendReport };
+module.exports = { bot, TelegramSendReport };
