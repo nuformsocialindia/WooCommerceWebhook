@@ -7,7 +7,7 @@ async function  sendReport(report) {
 
   //report design
    const telegramreport = await telegramRefactorReport(report);
-   const smtpreport = await smtpRefactorReport(report);
+   const Htmlsmtpreport = await smtpRefactorReport(report);
 
     //get admin users
     const chatIds = await db.getData("/adminUsers/TelegramChatIds");
@@ -15,7 +15,8 @@ async function  sendReport(report) {
 
     //send report
     await TelegramSendReport(telegramreport,chatIds).catch(console.error);
-    // await EmailSendReport(telegramreport,emails).catch(console.error);
+    const Subject = "New Order : "+report.id;
+     await EmailSendReport(Subject,emails,Htmlsmtpreport,telegramreport,).catch(console.error);
     
 }
 

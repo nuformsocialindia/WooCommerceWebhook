@@ -1,3 +1,5 @@
+const { emailTemplet } = require("./emailTemplet");
+
 function truncate(str, n){
     return (str.length > n) ? str.slice(0, n-1) + '....' : str;
   };
@@ -15,11 +17,8 @@ async function telegramRefactorReport(report){
         line_items,
       } = report;
 
-      itemarray ="Items: \n"; 
-    //   console.log(line_items[0].name);
-    // items = JSON.parse(line_items);
-    // line_items.forEach((item,index) => {itemarray =  index+ " " + item[index].name+"\n\n";});  
-    line_items.forEach((item,index) => {itemarray = itemarray + index+1 + " " + item.name+"\nQuantity :-("+item.quantity+") Price :- "+item.price+"\n\n";});  
+    itemarray ="Items: \n"; 
+    line_items.forEach((item,index) => {itemarray = itemarray + (index+1) + ". " + item.name+"\nQuantity :-("+item.quantity+") Price :- "+item.price+"\n\n";});  
     
     const billingdata ="\nBilling\n"+ billing["first_name"] +" " + billing["last_name"] +"\n"+billing["address_1"] +"\n"+ billing["address_2"] +"\n"+ billing["city"]+"\n"+ billing["state"] +"\n"+ billing["phone"];
     const shippingdata = "\nShipping\n"+ shipping["first_name"] +" " + shipping["last_name"] +"\n"+shipping["address_1"] +"\n"+ shipping["address_2"]+"\n"+ shipping["city"]+"\n"+ shipping["state"] +"\n"+ shipping["phone"];
@@ -31,7 +30,9 @@ async function telegramRefactorReport(report){
 }
 
 async function smtpRefactorReport(report){
-    return report;
+        // smtpreport = report
+    
+    return emailTemplet(report);;
 }
 
 module.exports = {telegramRefactorReport, smtpRefactorReport}

@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 
 // async..await is not allowed in global scope, must use a wrapper
-async function EmailSendReport(report, emails) {
+async function EmailSendReport(Subject,emails,HTMLreport,plainTextReport, ) {
   // Generate test SMTP service account from ethereal.email
   // Only needed if you don't have a real mail account for testing
 //   let testAccount = await nodemailer.createTestAccount();
@@ -22,9 +22,9 @@ async function EmailSendReport(report, emails) {
     // from: '"Nutrilez food" <email@email.com>', // sender address
     from: process.env.SMTP_EMAIL_NAME+'<'+process.env.SMTP_EMAIL+'>', // sender address
     to: emails, // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: report, // plain text body
-    // html: "<b>Hello world?</b>", // html body
+    subject: Subject, // Subject line
+    text: plainTextReport, // plain text body
+     html: HTMLreport, // html body
   });
 
   console.log("Email sent: %s", info.messageId);

@@ -3,10 +3,6 @@ const bodyParser = require("body-parser");
 
 // Load environment variables from .env file, where API keys and passwords are configured
 require("dotenv").config();
-//Load telegram 
-require("./services/telegram");
-//Load database
-require("./database")
 
 // Create Express server
 const app = express();
