@@ -1,9 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
-// Load environment variables from .env file, where API keys and passwords are configured
-require("dotenv").config();
-
 // Create Express server
 const app = express();
 

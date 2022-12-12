@@ -14,8 +14,7 @@ router.get("/", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     // send report
-    sendReport(req.body);
-
+    await sendReport(req.body);
     res.json(req.body["billing"]);
   } catch (error) {
     next(error);
