@@ -15,7 +15,7 @@ RUN npm install
 # RUN npm ci --only=production
 
 # Bundle app source
-COPY . ./app
+COPY . /app
 
 EXPOSE 3000
 CMD [ "node", "server.js" ]
