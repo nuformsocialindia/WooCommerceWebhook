@@ -1,4 +1,4 @@
-FROM node:18.12.1
+FROM node:latest
 
 # Create app directory
 RUN mkdir -p /app
