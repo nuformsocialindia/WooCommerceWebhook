@@ -1,4 +1,4 @@
-name: docker-image-php-apache-sql
+name: docker-image-build
 
 on:
   push:
