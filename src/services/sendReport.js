@@ -1,7 +1,7 @@
-const {TelegramSendReport } = require("../services/telegram");
-const { EmailSendReport } = require("../services/smtp");
+const {TelegramSendReport } = require("./telegram");
+const { EmailSendReport } = require("./smtp");
 const { db } = require("../database");
-const {telegramRefactorReport , smtpRefactorReport} = require("../services/refactorreport");
+const {telegramRefactorReport , smtpRefactorReport} = require("./refactorreport");
 
 async function  sendReport(report) {
 
